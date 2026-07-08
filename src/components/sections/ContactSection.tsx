@@ -110,23 +110,18 @@ export function ContactSection() {
             </Card>
           </motion.div>
 
-          {/* Contact Form - Visme Embed Placeholder */}
+          {/* Contact Form - Visme Embed */}
           <motion.div variants={itemVariants}>
-            <Card className="border-border bg-card/50 backdrop-blur-sm min-h-[400px] flex items-center justify-center">
-              <CardContent className="p-6 sm:p-8 flex flex-col items-center text-center gap-4 w-full">
-                <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center animate-pulse">
-                  <Send className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold">Visme Animated Form</h3>
-                <p className="text-muted-foreground text-sm max-w-sm">
-                  Placeholder for your interactive Visme Form. Please provide your Visme embed snippet to integrate the live form here!
-                </p>
-                {/* 
-                  TODO: Replace this entire CardContent block with your Visme Form Embed Code. 
-                  Example:
-                  <div className="visme_d" data-title="Contact" data-url="YOUR_VISME_URL" data-domain="forms" data-full-page="false" data-min-height="500px" data-form-id="12345"></div>
-                  <script src="https://static-bundles.visme.co/forms/vismeforms-embed.js"></script>
-                */}
+            <Card className="border-border bg-card/50 backdrop-blur-sm h-[600px] w-full overflow-hidden">
+              <CardContent className="p-0 h-full w-full relative">
+                <iframe 
+                  src="https://forms.visme.co/formsPlayer/7vgj6dky-open-house-feedback-form" 
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: "none", minHeight: "600px" }} 
+                  title="Contact Form"
+                  allow="microphone; camera;"
+                />
               </CardContent>
             </Card>
           </motion.div>
