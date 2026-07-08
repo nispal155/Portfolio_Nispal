@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { motion } from "motion/react"
-import { FileText, ArrowRight, Terminal as TerminalIcon, Copy, Check } from "lucide-react"
+import { FileText, ArrowRight, Terminal as TerminalIcon, Copy, Check, Volume2, VolumeX, RotateCcw } from "lucide-react"
 
 import { Button, buttonVariants } from "@/components/ui/button"
 import { PORTFOLIO_DATA } from "@/lib/data"
@@ -10,6 +10,25 @@ import { cn } from "@/lib/utils"
 
 export function HeroSection() {
   const [copied, setCopied] = React.useState(false)
+  const [isMuted, setIsMuted] = React.useState(true)
+  const [isHovered, setIsHovered] = React.useState(false)
+  const videoRef = React.useRef<HTMLVideoElement>(null)
+
+  const toggleMute = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted
+      setIsMuted(videoRef.current.muted)
+    }
+  }
+
+  const handleReplay = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0
+      videoRef.current.play()
+    }
+  }
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText("curl nispalbhattarai.com.np/api/resume")
@@ -33,23 +52,52 @@ export function HeroSection() {
 
       <div className="container relative z-10 mx-auto px-4 md:px-6 flex flex-col items-center text-center gap-8">
         
-        {/* Profile Image with subtle pulse */}
+        {/* Profile Video/Avatar */}
         <motion.div 
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ type: "spring", stiffness: 100, delay: 0.1 }}
           className="relative"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
         >
-          <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-background shadow-xl ring-2 ring-primary/20">
-            {/* Dummy professional photo */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img 
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop&q=80" 
-              alt="Nispal Bhattarai" 
+          <div className="w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden border-4 border-background shadow-xl ring-2 ring-primary/20 relative group cursor-pointer">
+            <video 
+              ref={videoRef}
+              src="/Developer_speaking_to_camera_202607082233.mp4"
+              autoPlay
+              loop
+              muted={isMuted}
+              playsInline
               className="w-full h-full object-cover"
             />
+            
+            {/* Dark Overlay with Controls on Hover */}
+            <div className={cn(
+              "absolute inset-0 bg-black/45 backdrop-blur-[1px] flex items-center justify-center gap-3 transition-opacity duration-300 rounded-full z-10",
+              isHovered ? "opacity-100" : "opacity-0 pointer-events-none"
+            )}>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={handleReplay}
+                className="h-9 w-9 rounded-full bg-white/20 hover:bg-white/30 text-white border border-white/10 shadow-md backdrop-blur-sm transition-transform active:scale-95"
+                title="Replay"
+              >
+                <RotateCcw className="h-4.5 w-4.5" />
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleMute}
+                className="h-9 w-9 rounded-full bg-white/20 hover:bg-white/30 text-white border border-white/10 shadow-md backdrop-blur-sm transition-transform active:scale-95"
+                title={isMuted ? "Unmute" : "Mute"}
+              >
+                {isMuted ? <VolumeX className="h-4.5 w-4.5" /> : <Volume2 className="h-4.5 w-4.5" />}
+              </Button>
+            </div>
           </div>
-          <div className="absolute -bottom-2 -right-2 bg-background rounded-full p-2 shadow-lg border border-border">
+          <div className="absolute bottom-1 right-1 bg-background rounded-full p-2 shadow-lg border border-border z-20">
             <span className="relative flex h-3 w-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
