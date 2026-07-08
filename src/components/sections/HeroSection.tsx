@@ -7,6 +7,7 @@ import { FileText, ArrowRight, Terminal as TerminalIcon, Copy, Check, Volume2, V
 import { Button, buttonVariants } from "@/components/ui/button"
 import { PORTFOLIO_DATA } from "@/lib/data"
 import { cn } from "@/lib/utils"
+import { HeroCanvas } from "@/components/3d/HeroCanvas"
 
 export function HeroSection() {
   const [copied, setCopied] = React.useState(false)
@@ -79,6 +80,9 @@ export function HeroSection() {
     <section id="top" className="relative min-h-[90vh] flex items-center justify-center pt-20 overflow-hidden">
       {/* Background animated grid - visible mainly in matrix/dark mode */}
       <div className="absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.05] matrix:opacity-[0.1] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+      
+      {/* 3D Canvas Background */}
+      <HeroCanvas />
 
       <div className="container relative z-10 mx-auto px-4 md:px-6 flex flex-col items-center text-center gap-8">
         

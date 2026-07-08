@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import Link from "next/link"
 import { motion } from "motion/react"
 import { ExternalLink, Folder } from "lucide-react"
 import { FaGithub } from "react-icons/fa"
@@ -76,9 +77,11 @@ export function ProjectsSection() {
                   </div>
                 </CardHeader>
                 <CardContent className="flex-1 flex flex-col gap-3">
-                  <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
+                  <Link href={`/projects/${project.id}`}>
+                    <h3 className="text-xl font-bold group-hover:text-primary transition-colors cursor-pointer">
+                      {project.title}
+                    </h3>
+                  </Link>
                   <p className="text-sm text-muted-foreground leading-relaxed flex-1">
                     {project.description}
                   </p>

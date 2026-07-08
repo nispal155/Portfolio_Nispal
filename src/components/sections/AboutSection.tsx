@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { motion } from "motion/react"
+import Image from "next/image"
 import { User, MapPin, Mail, Phone } from "lucide-react"
 
 import { PORTFOLIO_DATA } from "@/lib/data"
@@ -25,14 +26,13 @@ export function AboutSection() {
           className="flex justify-center"
         >
           <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden border-4 border-background shadow-2xl ring-2 ring-primary/20 bg-muted flex items-center justify-center group">
-            {/* Placeholder for Photo - User can replace this with an <img /> tag later */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-purple-500/10 flex flex-col items-center justify-center text-muted-foreground group-hover:scale-105 transition-transform duration-500">
-              <User className="w-20 h-20 mb-4 opacity-50" />
-              <p className="text-sm font-medium">Your Photo Here</p>
-            </div>
-            
-            {/* Example of how to add the image when ready: */}
-            {/* <img src="/your-photo.jpg" alt="Nispal Bhattarai" className="w-full h-full object-cover" /> */}
+            <Image
+              src="/nispal.jpg"
+              alt="Nispal Bhattarai"
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-500"
+              priority
+            />
           </div>
         </motion.div>
         

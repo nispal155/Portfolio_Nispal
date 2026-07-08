@@ -1,6 +1,6 @@
 "use client"
 
-import { Mail, Phone } from "lucide-react"
+
 import { FaGithub, FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa"
 
 export function Footer() {
@@ -21,14 +21,12 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col gap-4">
-            <h4 className="font-semibold">Contact</h4>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-              <Mail className="h-4 w-4" />
-              <a href="mailto:contact@nispalbhattarai.com.np">contact@nispalbhattarai.com.np</a>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-              <Phone className="h-4 w-4" />
-              <a href="tel:+9779852048719">+977 9852048719</a>
+            <h4 className="font-semibold">Quick Links</h4>
+            <div className="flex flex-col gap-2 text-sm text-muted-foreground">
+              <a href="#about" className="hover:text-primary transition-colors w-fit">About</a>
+              <a href="#skills" className="hover:text-primary transition-colors w-fit">Skills</a>
+              <a href="#projects" className="hover:text-primary transition-colors w-fit">Projects</a>
+              <a href="#experience" className="hover:text-primary transition-colors w-fit">Experience</a>
             </div>
           </div>
 

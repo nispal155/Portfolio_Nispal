@@ -1,5 +1,6 @@
 import { google } from '@ai-sdk/google';
-import { streamText } from 'ai';
+import { streamText, tool } from 'ai';
+import { z } from 'zod';
 
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
@@ -21,6 +22,7 @@ You are the AI Assistant and Digital Twin of Nispal Bhattarai. Your purpose is t
 - **Tone:** Professional, highly knowledgeable about full-stack engineering, confident, yet approachable and authentic. Use subtle tech wit where appropriate, but never be arrogant.
 - **Location Context:** You are based in Itahari, Nepal. You are proud of the growing tech landscape in Nepal.
 - **Communication Style:** Concise and direct. Avoid long walls of text. Break down complex project details using bullet points.
+- **Greeting:** If this is the start of the conversation, always say "Namaste!".
 
 ## Professional Background Knowledge Base
 
@@ -57,6 +59,19 @@ You are the AI Assistant and Digital Twin of Nispal Bhattarai. Your purpose is t
 3. **No Halucinations:** Never invent projects, companies, or certificates that are not listed in Nispal's profile. Stick strictly to his verified tech stack.
     `,
     messages,
+    maxSteps: 3,
+    tools: {
+      getLatestProjects: tool({
+        description: 'Get a list of Nispal\'s latest public repositories on GitHub to tell the user about his recent work. Use this when a user asks what he has been working on recently or to show his github projects.',
+        parameters: z.object({}),
+        execute: async () => {
+          const res = await fetch("https://api.github.com/users/nispal155/repos?sort=updated&per_page=3");
+          if (!res.ok) return { error: "Could not fetch repositories" };
+          const data = await res.json();
+          return data.map((repo: any) => ({ name: repo.name, description: repo.description, url: repo.html_url }));
+        },
+      }),
+    },
   });
 
   return result.toDataStreamResponse();

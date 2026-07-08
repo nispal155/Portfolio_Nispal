@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { motion } from "motion/react"
+import { motion, useScroll, useTransform } from "motion/react"
 import { Briefcase, Calendar, MapPin, GraduationCap } from "lucide-react"
 
 import { PORTFOLIO_DATA } from "@/lib/data"
@@ -9,6 +9,14 @@ import { SectionWrapper } from "@/components/layout/SectionWrapper"
 import { Card, CardContent } from "@/components/ui/card"
 
 export function ExperienceTimeline() {
+  const containerRef = React.useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  })
+
+  // The line will grow from 0 to 100% height as we scroll through the container
+  const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1])
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -24,10 +32,15 @@ export function ExperienceTimeline() {
 
   return (
     <SectionWrapper id="experience" className="bg-muted/10 relative">
-      {/* Vertical Timeline Line */}
-      <div className="absolute left-[2.5rem] md:left-1/2 top-32 bottom-32 w-px bg-border/50 transform md:-translate-x-1/2 hidden sm:block z-0" />
+      <div ref={containerRef} className="flex flex-col gap-12 relative z-10">
+        {/* Animated Vertical Timeline Line */}
+        <motion.div 
+          className="absolute left-[2.5rem] md:left-1/2 top-32 bottom-0 w-1 bg-primary transform md:-translate-x-1/2 hidden sm:block z-0 origin-top rounded-full" 
+          style={{ scaleY }}
+        />
+        {/* Faded background line */}
+        <div className="absolute left-[2.5rem] md:left-1/2 top-32 bottom-0 w-px bg-border/50 transform md:-translate-x-1/2 hidden sm:block z-0" />
 
-      <div className="flex flex-col gap-12 relative z-10">
         <div className="flex flex-col items-center text-center gap-4">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Experience & Education</h2>
           <p className="text-muted-foreground max-w-2xl">

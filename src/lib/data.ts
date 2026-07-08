@@ -40,6 +40,7 @@ export const PORTFOLIO_DATA = {
   },
   projects: [
     {
+      id: "astra-technology-horizon",
       title: "ASTRA TECHNOLOGY HORIZON",
       description: "Engineering Excellence, Forging Futures. A modern technology horizon website.",
       techStack: ["TypeScript", "Next.js", "Tailwind CSS"],
@@ -48,6 +49,7 @@ export const PORTFOLIO_DATA = {
       repoUrl: "https://github.com/nispal155/ASTRA_TECHNOLOGY_HORIZON"
     },
     {
+      id: "khana-sathi",
       title: "Khana Sathi",
       description: "A full-stack food delivery application with advanced features including group ordering, real-time chat, loyalty rewards, and child account controls. Built with Node.js/Express backend and Next.js frontend.",
       techStack: ["TypeScript", "Node.js", "Next.js"],
@@ -56,6 +58,7 @@ export const PORTFOLIO_DATA = {
       repoUrl: "https://github.com/nispal155/Nispal-Bhattarai-KhanaSathi"
     },
     {
+      id: "bodhi-tree-journeys",
       title: "Bodhi Tree Journeys Nepal",
       description: "A modern travel and tour agency website for Nepal built with Next.js 16, Tailwind CSS, and TypeScript.",
       techStack: ["TypeScript", "Next.js", "Tailwind CSS"],
@@ -64,6 +67,7 @@ export const PORTFOLIO_DATA = {
       repoUrl: "https://github.com/nispal155/Bodhi-Tree-Journeys-Nepal"
     },
     {
+      id: "food-express",
       title: "FoodExpress Online Food Ordering System",
       description: "Food Express is a Java EE web application that allows users to order food online from various restaurants. The system provides a user-friendly interface for customers to browse restaurants, view menus, place orders, and track deliveries.",
       techStack: ["Java", "Java EE", "MySQL"],
@@ -72,6 +76,7 @@ export const PORTFOLIO_DATA = {
       repoUrl: "https://github.com/nispal155/FoodExpress---Online-Food-Ordering-System"
     },
     {
+      id: "3d-solar-system",
       title: "3D Solar System",
       description: "An interactive 3D visualization of our solar system built with Three.js and HTML/CSS. Features realistic 3D representations of the Sun, planets, and the Moon.",
       techStack: ["HTML", "Three.js", "CSS"],
@@ -80,6 +85,7 @@ export const PORTFOLIO_DATA = {
       repoUrl: "https://github.com/nispal155/3D-Solar-System"
     },
     {
+      id: "midas-health-services",
       title: "Midas Health Services Career Development",
       description: "Career Development Learning platform for Midas Health Services.",
       techStack: ["JavaScript", "React"],
@@ -88,6 +94,7 @@ export const PORTFOLIO_DATA = {
       repoUrl: "https://github.com/nispal155/Midas-Health-Services-Career-Development-Learning"
     },
     {
+      id: "app-development-csharp",
       title: "Application Development C#",
       description: "A collection of C# programming tasks, assignments, and exercises focusing on core programming concepts and C# syntax.",
       techStack: ["C#", ".NET"],

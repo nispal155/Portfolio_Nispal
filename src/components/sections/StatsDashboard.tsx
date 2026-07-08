@@ -43,11 +43,28 @@ function AnimatedNumber({ value, label, icon }: { value: number, label: string, 
 }
 
 export function StatsDashboard() {
+  const [githubStats, setGithubStats] = React.useState({ repos: 15, gists: 10, followers: 5 })
+  
+  React.useEffect(() => {
+    fetch("https://api.github.com/users/nispal155")
+      .then(res => res.json())
+      .then(data => {
+        if (data && !data.message) {
+          setGithubStats({
+            repos: data.public_repos || 15,
+            gists: data.public_gists || 10,
+            followers: data.followers || 5
+          })
+        }
+      })
+      .catch(console.error)
+  }, [])
+
   const stats = [
-    { value: 15, label: "Projects Completed", icon: <Laptop className="w-6 h-6" /> },
+    { value: githubStats.repos, label: "Public Repositories", icon: <GitPullRequest className="w-6 h-6" /> },
     { value: 500, label: "Git Commits", icon: <GitPullRequest className="w-6 h-6" /> },
     { value: 120, label: "Cups of Coffee", icon: <Coffee className="w-6 h-6" /> },
-    { value: 10, label: "Technologies Mastered", icon: <Code className="w-6 h-6" /> },
+    { value: githubStats.followers, label: "GitHub Followers", icon: <Code className="w-6 h-6" /> },
   ]
 
   const containerVariants = {
