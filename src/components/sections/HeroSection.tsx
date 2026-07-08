@@ -83,7 +83,7 @@ export function HeroSection() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="flex flex-col sm:flex-row items-center gap-4 mt-4"
         >
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ size: "lg" }), "rounded-full px-8 h-12")}>
+          <a href="/NISPAL_BHATTARAI_CV.pdf" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ size: "lg" }), "rounded-full px-8 h-12 shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300")}>
             <FileText className="mr-2 h-4 w-4" /> Download CV
           </a>
           <a href="#projects" onClick={handleScrollToProjects} className={cn(buttonVariants({ size: "lg", variant: "outline" }), "rounded-full px-8 h-12")}>

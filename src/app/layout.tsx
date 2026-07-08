@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { TerminalProvider } from "@/hooks/useTerminal";
+import { FloatingElements } from "@/components/ui/FloatingElements";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -15,8 +17,13 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nispal Bhattarai | Nexus Portfolio",
-  description: "Premium interactive full-stack portfolio of Nispal Bhattarai.",
+  title: "Nispal Bhattarai | Full-Stack Engineer",
+  description: "Portfolio of Nispal Bhattarai, a Full-Stack MERN & Next.js Engineer based in Itahari, Nepal, specializing in scalable web ecosystems.",
+  openGraph: {
+    title: "Nispal Bhattarai | Full-Stack Engineer",
+    description: "Building highly optimized, scalable web ecosystems with exceptional UI/UX.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -39,8 +46,10 @@ export default function RootLayout({
         >
           <TerminalProvider>
             {children}
+            <FloatingElements />
           </TerminalProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
