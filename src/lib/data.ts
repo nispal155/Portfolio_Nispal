@@ -28,7 +28,9 @@ export const PORTFOLIO_DATA = {
       { name: "ASP.NET Core (.NET)", level: "Intermediate" }
     ],
     database: [
-      { name: "MySQL", level: "Advanced" }
+      { name: "MySQL", level: "Advanced" },
+      { name: "PostgreSQL", level: "Intermediate" },
+      { name: "MongoDB", level: "Intermediate" }
     ],
     tools: [
       { name: "Git", level: "Advanced" },

@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
 import { HeroSection } from "@/components/sections/HeroSection"
+import { AboutSection } from "@/components/sections/AboutSection"
 import { TechMatrix } from "@/components/sections/TechMatrix"
 import { ProjectsSection } from "@/components/sections/ProjectsSection"
 import { StatsDashboard } from "@/components/sections/StatsDashboard"
@@ -13,6 +14,7 @@ export default function Home() {
       <Navbar />
       <main className="flex-1 flex flex-col">
         <HeroSection />
+        <AboutSection />
         <TechMatrix />
         <ProjectsSection />
         <StatsDashboard />

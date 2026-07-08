@@ -10,9 +10,39 @@ import { cn } from "@/lib/utils"
 
 export function HeroSection() {
   const [copied, setCopied] = React.useState(false)
-  const [isMuted, setIsMuted] = React.useState(true)
+  const [isMuted, setIsMuted] = React.useState(false) // Try unmuted first
+  const [isLooping, setIsLooping] = React.useState(false)
   const [isHovered, setIsHovered] = React.useState(false)
   const videoRef = React.useRef<HTMLVideoElement>(null)
+
+  React.useEffect(() => {
+    const attemptPlay = async () => {
+      if (videoRef.current) {
+        videoRef.current.muted = false
+        try {
+          await videoRef.current.play()
+        } catch (err) {
+          // If browser blocks unmuted autoplay, fallback to muted looping autoplay
+          console.warn("Autoplay with sound blocked by browser, falling back to muted.", err)
+          if (videoRef.current) {
+            videoRef.current.muted = true
+            setIsMuted(true)
+            setIsLooping(true)
+            videoRef.current.play().catch(e => console.error("Muted autoplay also blocked", e))
+          }
+        }
+      }
+    }
+    attemptPlay()
+  }, [])
+
+  const handleVideoEnded = () => {
+    if (videoRef.current && !isLooping) {
+      setIsMuted(true)
+      setIsLooping(true)
+      videoRef.current.play()
+    }
+  }
 
   const toggleMute = (e: React.MouseEvent) => {
     e.stopPropagation()
@@ -65,10 +95,10 @@ export function HeroSection() {
             <video 
               ref={videoRef}
               src="/Developer_speaking_to_camera_202607082233.mp4"
-              autoPlay
-              loop
               muted={isMuted}
+              loop={isLooping}
               playsInline
+              onEnded={handleVideoEnded}
               className="w-full h-full object-cover"
             />
             
