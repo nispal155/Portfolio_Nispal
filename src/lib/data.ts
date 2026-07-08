@@ -49,15 +49,6 @@ export const PORTFOLIO_DATA = {
       repoUrl: "https://github.com/nispal155/ASTRA_TECHNOLOGY_HORIZON"
     },
     {
-      id: "khana-sathi",
-      title: "Khana Sathi",
-      description: "A full-stack food delivery application with advanced features including group ordering, real-time chat, loyalty rewards, and child account controls. Built with Node.js/Express backend and Next.js frontend.",
-      techStack: ["TypeScript", "Node.js", "Next.js"],
-      challenge: "Coordinating multi-restaurant logic and real-time chat integrations.",
-      demoUrl: "https://nispal-bhattarai-khana-sathi.vercel.app",
-      repoUrl: "https://github.com/nispal155/Nispal-Bhattarai-KhanaSathi"
-    },
-    {
       id: "bodhi-tree-journeys",
       title: "Bodhi Tree Journeys Nepal",
       description: "A modern travel and tour agency website for Nepal built with Next.js 16, Tailwind CSS, and TypeScript.",
@@ -65,6 +56,15 @@ export const PORTFOLIO_DATA = {
       challenge: "Optimizing images and travel itineraries for SEO and fast loading.",
       demoUrl: "https://bodhi-tree-journeys-nepal.vercel.app",
       repoUrl: "https://github.com/nispal155/Bodhi-Tree-Journeys-Nepal"
+    },
+    {
+      id: "khana-sathi",
+      title: "Khana Sathi",
+      description: "A full-stack food delivery application with advanced features including group ordering, real-time chat, loyalty rewards, and child account controls. Built with Node.js/Express backend and Next.js frontend.",
+      techStack: ["TypeScript", "Node.js", "Next.js"],
+      challenge: "Coordinating multi-restaurant logic and real-time chat integrations.",
+      demoUrl: "https://nispal-bhattarai-khana-sathi.vercel.app",
+      repoUrl: "https://github.com/nispal155/Nispal-Bhattarai-KhanaSathi"
     },
     {
       id: "food-express",
