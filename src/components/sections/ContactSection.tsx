@@ -39,17 +39,25 @@ export function ContactSection() {
     setErrorMsg("")
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          Accept: "application/json"
         },
-        body: JSON.stringify(formState)
+        body: JSON.stringify({
+          access_key: "ef4e677d-faf5-4be7-9a59-e48e7543773a",
+          name: `${formState.firstName} ${formState.lastName}`.trim(),
+          email: formState.email,
+          phone: formState.phone,
+          message: formState.message,
+          subject: `New Portfolio Message from ${formState.firstName} ${formState.lastName}`
+        })
       })
 
       const data = await res.json()
 
-      if (res.ok) {
+      if (res.ok && data.success) {
         setStatus("success")
         setFormState({
           firstName: "",
@@ -60,7 +68,7 @@ export function ContactSection() {
         })
       } else {
         setStatus("error")
-        setErrorMsg(data.error || "Something went wrong. Please try again.")
+        setErrorMsg(data.message || "Something went wrong. Please try again.")
       }
     } catch (err) {
       console.error("Submission error:", err)

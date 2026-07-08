@@ -6,7 +6,6 @@ import { ProjectsSection } from "@/components/sections/ProjectsSection"
 import { StatsDashboard } from "@/components/sections/StatsDashboard"
 import { ExperienceTimeline } from "@/components/sections/ExperienceTimeline"
 import { ContactSection } from "@/components/sections/ContactSection"
-import { CLITerminal } from "@/components/terminal/CLITerminal"
 
 export default function Home() {
   return (
@@ -21,7 +20,6 @@ export default function Home() {
         <ContactSection />
       </main>
       <Footer />
-      <CLITerminal />
     </>
   );
 }
