@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { motion } from "motion/react"
 import { Menu, X } from "lucide-react"
 
@@ -55,9 +56,10 @@ export function Navbar() {
         <Link 
           href="#top" 
           onClick={(e) => handleScrollTo(e, "#top")}
-          className="text-xl font-bold tracking-tight hover:text-primary transition-colors"
+          className="text-xl font-bold tracking-tight hover:text-primary transition-colors flex items-center gap-2"
         >
-          Nispal<span className="text-primary">.</span>
+          <Image src="/icon.png" alt="Nispal Logo" width={32} height={32} className="rounded object-cover" />
+          <span>Nispal<span className="text-primary">.</span></span>
         </Link>
 
         {/* Desktop Nav */}
