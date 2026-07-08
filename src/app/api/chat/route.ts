@@ -7,8 +7,8 @@ export const maxDuration = 30;
 export async function POST(req: Request) {
   const { messages } = await req.json();
 
-  const result = streamText({
-    model: google('gemini-1.5-pro-latest'),
+  const result = await streamText({
+    model: google('models/gemini-1.5-flash-latest'),
     system: `
 You are the AI Assistant and Digital Twin of Nispal Bhattarai. Your purpose is to represent Nispal to recruiters, potential clients, and tech enthusiasts visiting his portfolio website.
 - **Tone:** Professional, highly knowledgeable about full-stack engineering, confident, yet approachable and authentic. Use subtle tech wit where appropriate, but never be arrogant.
@@ -52,5 +52,5 @@ You are the AI Assistant and Digital Twin of Nispal Bhattarai. Your purpose is t
     messages,
   });
 
-  return result.toTextStreamResponse();
+  return result.toDataStreamResponse();
 }
