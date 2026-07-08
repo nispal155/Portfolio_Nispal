@@ -24,6 +24,9 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Nispal Bhattarai | Full-Stack Engineer",
   description: "Portfolio of Nispal Bhattarai, a Full-Stack MERN & Next.js Engineer based in Itahari, Nepal, specializing in scalable web ecosystems.",
+  icons: {
+    icon: "/icon.png",
+  },
   openGraph: {
     title: "Nispal Bhattarai | Full-Stack Engineer",
     description: "Building highly optimized, scalable web ecosystems with exceptional UI/UX.",
