@@ -1,7 +1,8 @@
 import { PORTFOLIO_DATA } from "@/lib/data"
 import { notFound } from "next/navigation"
 import Link from "next/link"
-import { ArrowLeft, ExternalLink, Github } from "lucide-react"
+import { ArrowLeft, ExternalLink } from "lucide-react"
+import { FaGithub } from "react-icons/fa"
 import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -41,7 +42,7 @@ export default function ProjectCaseStudyPage({ params }: { params: { slug: strin
           )}
           {project.repoUrl && (
             <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "outline" }))}>
-              <Github className="w-4 h-4 mr-2" /> View Source
+              <FaGithub className="w-4 h-4 mr-2" /> View Source
             </a>
           )}
         </div>
