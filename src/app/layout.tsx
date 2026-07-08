@@ -5,6 +5,9 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { TerminalProvider } from "@/hooks/useTerminal";
 import { FloatingElements } from "@/components/ui/FloatingElements";
+import { LenisProvider } from "@/components/ui/LenisProvider";
+import { CustomCursor } from "@/components/ui/CustomCursor";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -44,10 +47,14 @@ export default function RootLayout({
           enableSystem={false}
           themes={['light', 'dark', 'matrix']}
         >
-          <TerminalProvider>
-            {children}
-            <FloatingElements />
-          </TerminalProvider>
+          <LenisProvider>
+            <ScrollProgress />
+            <CustomCursor />
+            <TerminalProvider>
+              {children}
+              <FloatingElements />
+            </TerminalProvider>
+          </LenisProvider>
         </ThemeProvider>
         <Analytics />
       </body>

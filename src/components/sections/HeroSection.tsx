@@ -15,6 +15,36 @@ export function HeroSection() {
   const [isLooping, setIsLooping] = React.useState(false)
   const [isHovered, setIsHovered] = React.useState(false)
   const videoRef = React.useRef<HTMLVideoElement>(null)
+  
+  // Rotating typing text logic
+  const titles = React.useMemo(() => ["Full-Stack Web Developer", "Next.js Engineer", "MERN Stack Specialist"], [])
+  const [titleIdx, setTitleIdx] = React.useState(0)
+  const [displayText, setDisplayText] = React.useState("")
+  const [isDeleting, setIsDeleting] = React.useState(false)
+
+  React.useEffect(() => {
+    let timer: NodeJS.Timeout
+    const currentTitle = titles[titleIdx]
+    
+    if (isDeleting) {
+      timer = setTimeout(() => {
+        setDisplayText(currentTitle.substring(0, displayText.length - 1))
+      }, 40)
+    } else {
+      timer = setTimeout(() => {
+        setDisplayText(currentTitle.substring(0, displayText.length + 1))
+      }, 80)
+    }
+
+    if (!isDeleting && displayText === currentTitle) {
+      timer = setTimeout(() => setIsDeleting(true), 2000)
+    } else if (isDeleting && displayText === "") {
+      setIsDeleting(false)
+      setTitleIdx((prev) => (prev + 1) % titles.length)
+    }
+
+    return () => clearTimeout(timer)
+  }, [displayText, isDeleting, titleIdx, titles])
 
   React.useEffect(() => {
     const attemptPlay = async () => {
@@ -146,12 +176,12 @@ export function HeroSection() {
           className="flex flex-col items-center gap-4 max-w-3xl"
         >
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-            Hi, I&apos;m <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-500">{PORTFOLIO_DATA.personal.name}</span>
+            Hi, I&apos;m <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-500 to-pink-500 animate-gradient">{PORTFOLIO_DATA.personal.name}</span>
           </h1>
-          <h2 className="text-xl md:text-3xl font-medium text-muted-foreground flex items-center justify-center gap-2 flex-wrap">
+          <h2 className="text-xl md:text-3xl font-medium text-muted-foreground flex items-center justify-center gap-2 flex-wrap min-h-[40px]">
             <TerminalIcon className="w-6 h-6 text-primary" />
-            <span className="inline-block overflow-hidden border-r-2 border-primary animate-[typing_3s_steps(40,end),blink_.75s_step-end_infinite] whitespace-nowrap">
-              {PORTFOLIO_DATA.personal.title}
+            <span className="inline-block border-r-2 border-primary animate-[blink_.75s_step-end_infinite]">
+              {displayText}
             </span>
           </h2>
           <p className="text-base md:text-lg text-muted-foreground mt-4 max-w-2xl leading-relaxed">
@@ -165,10 +195,10 @@ export function HeroSection() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="flex flex-col sm:flex-row items-center gap-4 mt-4"
         >
-          <a href="/NISPAL_BHATTARAI_CV.pdf" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ size: "lg" }), "rounded-full px-8 h-12 shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300")}>
+          <a href="/NISPAL_BHATTARAI_CV.pdf" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ size: "lg" }), "rounded-full px-8 h-12 shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300 magnetic-hover")}>
             <FileText className="mr-2 h-4 w-4" /> Download CV
           </a>
-          <a href="#projects" onClick={handleScrollToProjects} className={cn(buttonVariants({ size: "lg", variant: "outline" }), "rounded-full px-8 h-12")}>
+          <a href="#projects" onClick={handleScrollToProjects} className={cn(buttonVariants({ size: "lg", variant: "outline" }), "rounded-full px-8 h-12 magnetic-hover")}>
             View Projects <ArrowRight className="ml-2 h-4 w-4" />
           </a>
         </motion.div>
