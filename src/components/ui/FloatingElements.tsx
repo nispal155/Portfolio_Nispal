@@ -3,7 +3,7 @@
 import * as React from "react"
 import { motion, AnimatePresence } from "motion/react"
 import { ArrowUp, MessageSquare, X, Send, Bot, User, Loader2 } from "lucide-react"
-import { useChat } from "ai/react"
+import { useChat } from "@ai-sdk/react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"

@@ -52,6 +52,5 @@ You are the AI Assistant and Digital Twin of Nispal Bhattarai. Your purpose is t
     messages,
   });
 
-  const stream = await result;
-  return stream.toAIStreamResponse();
+  return result.toTextStreamResponse();
 }
