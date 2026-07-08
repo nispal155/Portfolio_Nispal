@@ -7,6 +7,13 @@ export const maxDuration = 30;
 export async function POST(req: Request) {
   const { messages } = await req.json();
 
+  if (!process.env.GOOGLE_GENERATIVE_AI_API_KEY) {
+    return new Response(
+      JSON.stringify({ error: "Google Gemini API key not configured. Please add GOOGLE_GENERATIVE_AI_API_KEY to your .env.local file." }),
+      { status: 500, headers: { 'Content-Type': 'application/json' } }
+    );
+  }
+
   const result = await streamText({
     model: google('models/gemini-1.5-flash-latest'),
     system: `

@@ -21,7 +21,7 @@ export function FloatingElements() {
       {
         id: '1',
         role: 'assistant',
-        content: "Hi! I'm Nispal's AI digital twin. I can answer questions about his tech stack, projects, and availability. How can I help you today?"
+        content: "Namaste! I'm Nispal's AI digital twin. I can answer questions about his tech stack, projects, and availability. How can I help you today?"
       }
     ]
   })

@@ -3,12 +3,11 @@
 import * as React from "react"
 import Link from "next/link"
 import { motion } from "motion/react"
-import { Menu, Terminal as TerminalIcon, X } from "lucide-react"
+import { Menu, X } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { ThemeSwitcher } from "@/components/theme/ThemeSwitcher"
 import { cn } from "@/lib/utils"
-import { useTerminal } from "@/hooks/useTerminal"
 
 const NAV_LINKS = [
   { name: "About", href: "#about" },
@@ -21,7 +20,6 @@ const NAV_LINKS = [
 export function Navbar() {
   const [isScrolled, setIsScrolled] = React.useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
-  const { toggleTerminal } = useTerminal()
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -77,11 +75,6 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          
-          <Button variant="ghost" size="icon" onClick={toggleTerminal} className="hidden sm:flex">
-            <TerminalIcon className="h-[1.2rem] w-[1.2rem]" />
-            <span className="sr-only">Toggle terminal</span>
-          </Button>
           
           <ThemeSwitcher />
           
