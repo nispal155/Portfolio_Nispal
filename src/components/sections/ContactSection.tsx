@@ -7,25 +7,8 @@ import { Mail, Phone, Send, MapPin, CheckCircle2 } from "lucide-react"
 import { PORTFOLIO_DATA } from "@/lib/data"
 import { SectionWrapper } from "@/components/layout/SectionWrapper"
 import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Button } from "@/components/ui/button"
 
 export function ContactSection() {
-  const [isSubmitting, setIsSubmitting] = React.useState(false)
-  const [isSubmitted, setIsSubmitted] = React.useState(false)
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setIsSubmitted(true)
-      setTimeout(() => setIsSubmitted(false), 3000)
-    }, 1500)
-  }
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -56,11 +39,11 @@ export function ContactSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start max-w-5xl mx-auto w-full"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch max-w-5xl mx-auto w-full"
         >
           {/* Contact Information */}
-          <motion.div variants={itemVariants} className="flex flex-col gap-8">
-            <Card className="border-border bg-card/50 backdrop-blur-sm">
+          <motion.div variants={itemVariants} className="flex flex-col h-full">
+            <Card className="border-border bg-card/50 backdrop-blur-sm h-full flex flex-col justify-center">
               <CardContent className="p-6 sm:p-8 flex flex-col gap-8">
                 <div>
                   <h3 className="text-2xl font-bold mb-2">Get In Touch</h3>
@@ -111,14 +94,14 @@ export function ContactSection() {
           </motion.div>
 
           {/* Contact Form - Visme Embed */}
-          <motion.div variants={itemVariants}>
-            <Card className="border-border bg-card/50 backdrop-blur-sm h-[600px] w-full overflow-hidden">
+          <motion.div variants={itemVariants} className="flex flex-col h-full">
+            <Card className="border-border bg-card/50 backdrop-blur-sm min-h-[500px] lg:min-h-[600px] w-full overflow-hidden h-full">
               <CardContent className="p-0 h-full w-full relative">
                 <iframe 
                   src="https://forms.visme.co/formsPlayer/7vgj6dky-open-house-feedback-form" 
                   width="100%" 
                   height="100%" 
-                  style={{ border: "none", minHeight: "600px" }} 
+                  style={{ border: "none", minHeight: "100%", height: "100%", position: "absolute", inset: 0 }} 
                   title="Contact Form"
                   allow="microphone; camera;"
                 />
