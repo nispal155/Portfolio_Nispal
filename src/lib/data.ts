@@ -3,7 +3,7 @@ export const PORTFOLIO_DATA = {
     name: "Nispal Bhattarai",
     title: "Full-Stack Web Developer",
     location: "Itahari-04, Sunsari, Nepal",
-    email: "nispalbhattarai28@gmail.com",
+    email: "contact@nispalbhattarai.com.np",
     phone: "+977 9852048719",
     summary: "To pursue a challenging and growth-oriented career in full-stack web development, where I can leverage my technical skills to build scalable, user-centric digital solutions. I aim to continuously evolve with emerging technologies and contribute meaningfully to innovative projects, while establishing myself as a reliable and impactful professional in the software development industry.",
     socials: {
@@ -38,36 +38,60 @@ export const PORTFOLIO_DATA = {
   },
   projects: [
     {
-      title: "Khana Sathi",
-      description: "Developed Khana Sathi, a modern food ordering and delivery platform for Nepal with secure authentication, digital payments, and multi-restaurant ordering features. Implemented frontend/backend functionalities and followed Agile methodologies to enhance user experience and delivery efficiency.",
-      techStack: ["React", "Node.js", "Agile"],
-      challenge: "Coordinating multi-restaurant logic and managing secure digital payment integrations.",
-      demoUrl: "#",
-      repoUrl: "https://github.com/nispal155"
+      title: "ASTRA TECHNOLOGY HORIZON",
+      description: "Engineering Excellence, Forging Futures. A modern technology horizon website.",
+      techStack: ["TypeScript", "Next.js", "Tailwind CSS"],
+      challenge: "Building high-performance landing pages with immersive aesthetics.",
+      demoUrl: "https://astra-technology-horizon.vercel.app",
+      repoUrl: "https://github.com/nispal155/ASTRA_TECHNOLOGY_HORIZON"
     },
     {
-      title: "Food Express",
-      description: "Built a food ordering and tracking system using Java and MySQL, with features like user authentication, menu management, order tracking, and more.",
-      techStack: ["Java", "MySQL"],
+      title: "Khana Sathi",
+      description: "A full-stack food delivery application with advanced features including group ordering, real-time chat, loyalty rewards, and child account controls. Built with Node.js/Express backend and Next.js frontend.",
+      techStack: ["TypeScript", "Node.js", "Next.js"],
+      challenge: "Coordinating multi-restaurant logic and real-time chat integrations.",
+      demoUrl: "https://nispal-bhattarai-khana-sathi.vercel.app",
+      repoUrl: "https://github.com/nispal155/Nispal-Bhattarai-KhanaSathi"
+    },
+    {
+      title: "Bodhi Tree Journeys Nepal",
+      description: "A modern travel and tour agency website for Nepal built with Next.js 16, Tailwind CSS, and TypeScript.",
+      techStack: ["TypeScript", "Next.js", "Tailwind CSS"],
+      challenge: "Optimizing images and travel itineraries for SEO and fast loading.",
+      demoUrl: "https://bodhi-tree-journeys-nepal.vercel.app",
+      repoUrl: "https://github.com/nispal155/Bodhi-Tree-Journeys-Nepal"
+    },
+    {
+      title: "FoodExpress Online Food Ordering System",
+      description: "Food Express is a Java EE web application that allows users to order food online from various restaurants. The system provides a user-friendly interface for customers to browse restaurants, view menus, place orders, and track deliveries.",
+      techStack: ["Java", "Java EE", "MySQL"],
       challenge: "Building a robust tracking system using relational database management.",
       demoUrl: "#",
-      repoUrl: "https://github.com/nispal155"
+      repoUrl: "https://github.com/nispal155/FoodExpress---Online-Food-Ordering-System"
     },
     {
-      title: "JournalSathi",
-      description: "JournalSathi is a modern digital journaling platform that helps users record thoughts, track moods, and manage daily tasks efficiently. It provides a secure and user-friendly experience focused on productivity and personal well-being.",
-      techStack: ["ASP.NET Core", ".NET"],
-      challenge: "Implementing secure journaling with encrypted thoughts and mood tracking logic.",
+      title: "3D Solar System",
+      description: "An interactive 3D visualization of our solar system built with Three.js and HTML/CSS. Features realistic 3D representations of the Sun, planets, and the Moon.",
+      techStack: ["HTML", "Three.js", "CSS"],
+      challenge: "Calculating celestial orbits and applying 3D textures in browser.",
       demoUrl: "#",
-      repoUrl: "https://github.com/nispal155"
+      repoUrl: "https://github.com/nispal155/3D-Solar-System"
     },
     {
-      title: "AutoParts Hub",
-      description: "Developed a full-stack automotive parts management and e-commerce platform using ASP.NET Core Web API, Entity Framework Core, Next.js, PostgreSQL, and Tailwind CSS. Implemented inventory management, role-based access control, product catalog management, order processing, and customer account features to streamline vehicle parts sales and operations.",
-      techStack: ["ASP.NET Core", "Next.js", "PostgreSQL", "Tailwind CSS"],
-      challenge: "Handling complex inventory management and role-based access for diverse user types.",
+      title: "Midas Health Services Career Development",
+      description: "Career Development Learning platform for Midas Health Services.",
+      techStack: ["JavaScript", "React"],
+      challenge: "Designing responsive UI components for healthcare professionals.",
+      demoUrl: "https://midas-health-services-career-develo.vercel.app",
+      repoUrl: "https://github.com/nispal155/Midas-Health-Services-Career-Development-Learning"
+    },
+    {
+      title: "Application Development C#",
+      description: "A collection of C# programming tasks, assignments, and exercises focusing on core programming concepts and C# syntax.",
+      techStack: ["C#", ".NET"],
+      challenge: "Mastering object-oriented principles in C#.",
       demoUrl: "#",
-      repoUrl: "https://github.com/nispal155"
+      repoUrl: "https://github.com/nispal155/Application-Development"
     }
   ],
   experience: [

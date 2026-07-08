@@ -1,0 +1,100 @@
+[
+  {
+    "title": "3D Solar System",
+    "description": "Project from GitHub",
+    "readmeSnippet": "# 3D Solar System  An interactive 3D visualization of our solar system built with Three.js and HTML/CSS.  ## Features  - Realistic 3D representation of the Sun, planets, and the Moon - Interactive controls to toggle orbits, rotation, and planet labels - Click on celestial bodies to view detailed inf",
+    "technologies": [
+      "HTML"
+    ],
+    "repoUrl": "https://github.com/nispal155/3D-Solar-System",
+    "liveUrl": ""
+  },
+  {
+    "title": "Application Development",
+    "description": "This the repo for the Application Development Module",
+    "readmeSnippet": "# 🌟 Application Development – Module Tasks  Welcome to my **Application Development** module repository!   This repository contains all the C# programming tasks, assignments, and exercises completed as part of my coursework.   Each task focuses on mastering **core programming concepts**, **C# synta",
+    "technologies": [
+      "C#"
+    ],
+    "repoUrl": "https://github.com/nispal155/Application-Development",
+    "liveUrl": ""
+  },
+  {
+    "title": "ASTRA_TECHNOLOGY_HORIZON",
+    "description": "Project from GitHub",
+    "readmeSnippet": "<div align=\"center\">   <img src=\"https://capsule-render.vercel.app/api?type=waving&color=0:2563EB,100:F59E0B&height=200&section=header&text=Astra%20Technology%20Horizon&fontSize=50&fontAlignY=38&desc=Engineering%20Excellence,%20Forging%20Futures.&descAlignY=60&descAlign=50&fontColor=ffffff\" alt=\"Ast",
+    "technologies": [
+      "TypeScript"
+    ],
+    "repoUrl": "https://github.com/nispal155/ASTRA_TECHNOLOGY_HORIZON",
+    "liveUrl": "https://astra-technology-horizon.vercel.app"
+  },
+  {
+    "title": "Bodhi Tree Journeys Nepal",
+    "description": "Project from GitHub",
+    "readmeSnippet": "# 🏔️ Bodhi Tree Journeys Nepal  ![Next.js](https://img.shields.io/badge/Next.js-16.2.9-black?style=for-the-badge&logo=next.js) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css) ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?s",
+    "technologies": [
+      "TypeScript"
+    ],
+    "repoUrl": "https://github.com/nispal155/Bodhi-Tree-Journeys-Nepal",
+    "liveUrl": "https://bodhi-tree-journeys-nepal.vercel.app"
+  },
+  {
+    "title": "E commerce Website",
+    "description": "This is the Coursework of Information System.",
+    "readmeSnippet": "",
+    "technologies": [
+      "HTML"
+    ],
+    "repoUrl": "https://github.com/nispal155/E-commerce-Website",
+    "liveUrl": ""
+  },
+  {
+    "title": "FoodExpress   Online Food Ordering System",
+    "description": "This is the Coursework of Advanced Programming ",
+    "readmeSnippet": "# Food Express - Online Food Ordering System  ## Project Overview Food Express is a Java EE web application that allows users to order food online from various restaurants. The system provides a user-friendly interface for customers to browse restaurants, view menus, place orders, and track deliveri",
+    "technologies": [
+      "Java"
+    ],
+    "repoUrl": "https://github.com/nispal155/FoodExpress---Online-Food-Ordering-System",
+    "liveUrl": ""
+  },
+  {
+    "title": "Midas Health Services Career Development Learning",
+    "description": "Project from GitHub",
+    "readmeSnippet": "",
+    "technologies": [
+      "JavaScript"
+    ],
+    "repoUrl": "https://github.com/nispal155/Midas-Health-Services-Career-Development-Learning",
+    "liveUrl": "https://midas-health-services-career-develo.vercel.app"
+  },
+  {
+    "title": "Nispal Bhattarai KhanaSathi",
+    "description": "Project from GitHub",
+    "readmeSnippet": "# Khana Sathi - Food Delivery Platform  A full-stack food delivery application with advanced features including group ordering, real-time chat, loyalty rewards, and child account controls. Built with Node.js/Express backend and Next.js frontend.  ## Table of Contents  - [Project Overview](#project-o",
+    "technologies": [
+      "TypeScript"
+    ],
+    "repoUrl": "https://github.com/nispal155/Nispal-Bhattarai-KhanaSathi",
+    "liveUrl": "https://nispal-bhattarai-khana-sathi.vercel.app"
+  },
+  {
+    "title": "Port",
+    "description": "Project from GitHub",
+    "readmeSnippet": "",
+    "technologies": [],
+    "repoUrl": "https://github.com/nispal155/Port",
+    "liveUrl": ""
+  },
+  {
+    "title": "Second Year Project",
+    "description": "This is the Second Year Project of Mine.",
+    "readmeSnippet": "",
+    "technologies": [
+      "JavaScript"
+    ],
+    "repoUrl": "https://github.com/nispal155/Second-Year-Project",
+    "liveUrl": ""
+  }
+]

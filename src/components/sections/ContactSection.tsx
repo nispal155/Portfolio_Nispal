@@ -110,60 +110,23 @@ export function ContactSection() {
             </Card>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* Contact Form - Visme Embed Placeholder */}
           <motion.div variants={itemVariants}>
-            <Card className="border-border bg-card/50 backdrop-blur-sm">
-              <CardContent className="p-6 sm:p-8">
-                <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="flex flex-col gap-2">
-                      <label htmlFor="name" className="text-sm font-medium">Name</label>
-                      <Input id="name" placeholder="John Doe" required className="bg-background/50" />
-                    </div>
-                    <div className="flex flex-col gap-2">
-                      <label htmlFor="email" className="text-sm font-medium">Email</label>
-                      <Input id="email" type="email" placeholder="john@example.com" required className="bg-background/50" />
-                    </div>
-                  </div>
-                  
-                  <div className="flex flex-col gap-2">
-                    <label htmlFor="subject" className="text-sm font-medium">Subject</label>
-                    <Input id="subject" placeholder="Project Inquiry" required className="bg-background/50" />
-                  </div>
-                  
-                  <div className="flex flex-col gap-2">
-                    <label htmlFor="message" className="text-sm font-medium">Message</label>
-                    <Textarea 
-                      id="message" 
-                      placeholder="Tell me about your project..." 
-                      rows={5} 
-                      required 
-                      className="bg-background/50 resize-none" 
-                    />
-                  </div>
-
-                  <Button 
-                    type="submit" 
-                    size="lg" 
-                    className="w-full sm:w-auto self-start mt-2" 
-                    disabled={isSubmitting || isSubmitted}
-                  >
-                    {isSubmitting ? (
-                      <span className="flex items-center gap-2">
-                        <div className="h-4 w-4 rounded-full border-2 border-background border-r-transparent animate-spin" />
-                        Sending...
-                      </span>
-                    ) : isSubmitted ? (
-                      <span className="flex items-center gap-2">
-                        <CheckCircle2 className="h-4 w-4" /> Message Sent
-                      </span>
-                    ) : (
-                      <span className="flex items-center gap-2">
-                        <Send className="h-4 w-4" /> Send Message
-                      </span>
-                    )}
-                  </Button>
-                </form>
+            <Card className="border-border bg-card/50 backdrop-blur-sm min-h-[400px] flex items-center justify-center">
+              <CardContent className="p-6 sm:p-8 flex flex-col items-center text-center gap-4 w-full">
+                <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center animate-pulse">
+                  <Send className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold">Visme Animated Form</h3>
+                <p className="text-muted-foreground text-sm max-w-sm">
+                  Placeholder for your interactive Visme Form. Please provide your Visme embed snippet to integrate the live form here!
+                </p>
+                {/* 
+                  TODO: Replace this entire CardContent block with your Visme Form Embed Code. 
+                  Example:
+                  <div className="visme_d" data-title="Contact" data-url="YOUR_VISME_URL" data-domain="forms" data-full-page="false" data-min-height="500px" data-form-id="12345"></div>
+                  <script src="https://static-bundles.visme.co/forms/vismeforms-embed.js"></script>
+                */}
               </CardContent>
             </Card>
           </motion.div>
