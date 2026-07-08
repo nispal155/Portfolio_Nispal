@@ -10,6 +10,7 @@ import { PORTFOLIO_DATA } from "@/lib/data"
 import { SectionWrapper } from "@/components/layout/SectionWrapper"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { SpotlightCard } from "@/components/ui/SpotlightCard"
 
 export function ProjectsSection() {
   const containerVariants = {
@@ -46,8 +47,9 @@ export function ProjectsSection() {
         >
           {PORTFOLIO_DATA.projects.map((project, idx) => (
             <motion.div key={idx} variants={itemVariants} className="h-full">
-              <Card className="h-full flex flex-col border-border bg-card/50 hover:bg-card/80 transition-colors group">
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
+              <SpotlightCard className="h-full">
+                <Card className="h-full flex flex-col border-border bg-card/50 hover:bg-card/80 transition-colors group">
+                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
                   <div className="p-2 rounded-full bg-primary/10 text-primary">
                     <Folder className="w-6 h-6" />
                   </div>
@@ -98,7 +100,8 @@ export function ProjectsSection() {
                     </Badge>
                   ))}
                 </CardFooter>
-              </Card>
+                </Card>
+              </SpotlightCard>
             </motion.div>
           ))}
         </motion.div>

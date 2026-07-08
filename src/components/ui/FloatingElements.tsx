@@ -15,7 +15,7 @@ export function FloatingElements() {
   const [isChatOpen, setIsChatOpen] = React.useState(false)
   const chatScrollRef = React.useRef<HTMLDivElement>(null)
 
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
+  const { messages, input, handleInputChange, handleSubmit, isLoading, append } = useChat({
     api: '/api/chat',
     initialMessages: [
       {
@@ -45,6 +45,13 @@ export function FloatingElements() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
+
+  const QUICK_REPLIES = [
+    "What's his tech stack?",
+    "Show recent projects",
+    "Is he available?",
+    "How can I contact him?"
+  ]
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-4">
@@ -78,7 +85,7 @@ export function FloatingElements() {
               </CardHeader>
               
               <CardContent className="flex-1 p-0 overflow-hidden relative">
-                <div ref={chatScrollRef} className="h-full w-full overflow-y-auto p-4 space-y-4">
+                <div ref={chatScrollRef} className="h-full w-full overflow-y-auto p-4 space-y-4 pb-20">
                   {messages.map((m) => (
                     <div key={m.id} className={`flex gap-3 ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                       {m.role === 'assistant' && (
@@ -110,11 +117,23 @@ export function FloatingElements() {
                 </div>
               </CardContent>
 
-              <CardFooter className="p-4 border-t">
-                <form onSubmit={handleSubmit} className="flex w-full gap-2 relative">
-                  <Input 
-                    value={input}
-                    onChange={handleInputChange}
+              <div className="border-t bg-background">
+                <div className="flex overflow-x-auto gap-2 px-4 py-3 pb-2 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                  {QUICK_REPLIES.map((q) => (
+                    <button 
+                      key={q} 
+                      onClick={() => append({ role: 'user', content: q })}
+                      className="shrink-0 text-xs px-3 py-1.5 bg-secondary hover:bg-secondary/80 text-secondary-foreground rounded-full whitespace-nowrap transition-colors"
+                    >
+                      {q}
+                    </button>
+                  ))}
+                </div>
+                <CardFooter className="p-4 pt-2">
+                  <form onSubmit={handleSubmit} className="flex w-full gap-2 relative">
+                    <Input 
+                      value={input}
+                      onChange={handleInputChange}
                     placeholder="Ask about Nispal's skills..." 
                     className="flex-1 rounded-full pr-10 bg-background/50"
                   />
@@ -127,7 +146,8 @@ export function FloatingElements() {
                     <Send className="w-4 h-4" />
                   </Button>
                 </form>
-              </CardFooter>
+                </CardFooter>
+              </div>
             </Card>
           </motion.div>
         )}

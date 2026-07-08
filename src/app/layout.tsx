@@ -8,6 +8,8 @@ import { FloatingElements } from "@/components/ui/FloatingElements";
 import { LenisProvider } from "@/components/ui/LenisProvider";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
+import { BootSequence } from "@/components/ui/BootSequence";
+import { CommandPalette } from "@/components/ui/CommandPalette";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -47,6 +49,8 @@ export default function RootLayout({
           enableSystem={false}
           themes={['light', 'dark', 'matrix']}
         >
+          <BootSequence />
+          <CommandPalette />
           <LenisProvider>
             <ScrollProgress />
             <CustomCursor />
