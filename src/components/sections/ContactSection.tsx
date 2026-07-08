@@ -1,14 +1,30 @@
 "use client"
 
 import * as React from "react"
+import { useEffect } from "react"
 import { motion } from "motion/react"
-import { Mail, Phone, Send, MapPin, CheckCircle2 } from "lucide-react"
+import { Mail, Phone, MapPin } from "lucide-react"
 
 import { PORTFOLIO_DATA } from "@/lib/data"
 import { SectionWrapper } from "@/components/layout/SectionWrapper"
 import { Card, CardContent } from "@/components/ui/card"
 
 export function ContactSection() {
+  useEffect(() => {
+    // Dynamically load the Visme embed script to ensure it executes in React
+    const script = document.createElement("script")
+    script.src = "https://static-bundles.visme.co/forms/vismeforms-embed.js"
+    script.async = true
+    document.body.appendChild(script)
+    
+    return () => {
+      // Cleanup script on unmount if needed
+      if (document.body.contains(script)) {
+        document.body.removeChild(script)
+      }
+    }
+  }, [])
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -94,17 +110,19 @@ export function ContactSection() {
           </motion.div>
 
           {/* Contact Form - Visme Embed */}
-          <motion.div variants={itemVariants} className="flex flex-col h-full">
-            <Card className="border-border bg-card/50 backdrop-blur-sm min-h-[500px] lg:min-h-[600px] w-full overflow-hidden h-full">
-              <CardContent className="p-0 h-full w-full relative">
-                <iframe 
-                  src="https://forms.visme.co/formsPlayer/7vgj6dky-open-house-feedback-form" 
-                  width="100%" 
-                  height="100%" 
-                  style={{ border: "none", minHeight: "100%", height: "100%", position: "absolute", inset: 0 }} 
-                  title="Contact Form"
-                  allow="microphone; camera;"
-                />
+          <motion.div variants={itemVariants} className="flex flex-col h-full w-full">
+            <Card className="border-border bg-card/50 backdrop-blur-sm min-h-[500px] lg:min-h-[600px] w-full h-full overflow-hidden flex items-center justify-center p-0">
+              <CardContent className="p-0 h-full w-full">
+                <div 
+                  className="visme_d" 
+                  data-title="Contact Form" 
+                  data-url="7vgj6dky-open-house-feedback-form" 
+                  data-domain="forms" 
+                  data-full-page="false" 
+                  data-min-height="600px" 
+                  data-form-id="7vgj6dky"
+                  style={{ width: "100%", height: "100%" }}
+                ></div>
               </CardContent>
             </Card>
           </motion.div>
